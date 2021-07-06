@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @Service //@Component도 가능하지만 용도를 명확하게 하기위해 @Service 사용
@@ -33,6 +34,36 @@ public class UserDaoService {
     public User findOne(int id){
         for(User user : users){
             if(user.getId() == id){
+                return user;
+            }
+        }
+
+        return null;
+    }
+
+    public User deleteById(int id){
+        Iterator<User> iterator = users.iterator();
+
+        while(iterator.hasNext()){
+            User user = iterator.next();
+
+            if(user.getId() == id){
+                iterator.remove();
+                return user;
+            }
+        }
+
+        return null;
+    }
+
+    public User updateNameById(int id, String name){
+        Iterator<User> iterator = users.iterator();
+
+        while(iterator.hasNext()){
+            User user = iterator.next();
+
+            if(user.getId() == id){
+                user.setName(name);
                 return user;
             }
         }
