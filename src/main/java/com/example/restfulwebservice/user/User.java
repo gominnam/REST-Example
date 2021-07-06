@@ -1,5 +1,7 @@
 package com.example.restfulwebservice.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,6 +11,7 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
+@JsonIgnoreProperties(value={"password", "ssn"}) //json 값을 전달하지 않는 어노테이션
 public class User {
     private Integer id;
 
@@ -17,4 +20,9 @@ public class User {
 
     @Past
     private Date joinDate;
+
+    //@JsonIgnore //json 값을 전달하지 않는 어노테이션
+    private String password;
+
+    private String ssn;
 }
