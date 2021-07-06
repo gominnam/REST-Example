@@ -38,9 +38,10 @@ public class AdminUserController {
     }
 
     // GET /admin/users/1 -> /admin/v1/users/1
-//    @GetMapping("/v1/users/{id}") version 관리 방법1
-//    @GetMapping(value="/users/{id}/", params = "version=1") // 방법2
-    @GetMapping(value="/users/{id}", headers = "X-API-VERSION=1") // 방법3
+//    @GetMapping("/v1/users/{id}") version 관리 방법1 URI
+//    @GetMapping(value="/users/{id}/", params = "version=1") // 방법2 PARAM
+//    @GetMapping(value="/users/{id}", headers = "X-API-VERSION=1") // 방법3 HEADER
+    @GetMapping(value="/users/{id}", produces = "application/vnd.company.appv1+json") // 방법4 MIME 타입
     public MappingJacksonValue retrieveUserV1(@PathVariable int id){
         User user = service.findOne(id);
 
@@ -62,7 +63,8 @@ public class AdminUserController {
     // Version 관리
 //    @GetMapping("/v2/users/{id}")
 //    @GetMapping(value="/users/{id}/", params = "version=2")
-    @GetMapping(value="/users/{id}", headers = "X-API-VERSION=2")
+//    @GetMapping(value="/users/{id}", headers = "X-API-VERSION=2")
+    @GetMapping(value="/users/{id}", produces = "application/vnd.company.appv2+json")
     public MappingJacksonValue retrieveUserV2(@PathVariable int id){
         User user = service.findOne(id);
 
