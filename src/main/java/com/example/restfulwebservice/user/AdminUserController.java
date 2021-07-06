@@ -37,7 +37,7 @@ public class AdminUserController {
         return mapping;
     }
 
-    // GET /admin/users/1 -> /admin/v1/users/1
+    // GET /admin/users/1 -> /admin/v1/users/1 수정
 //    @GetMapping("/v1/users/{id}") version 관리 방법1 URI
 //    @GetMapping(value="/users/{id}/", params = "version=1") // 방법2 PARAM
 //    @GetMapping(value="/users/{id}", headers = "X-API-VERSION=1") // 방법3 HEADER
