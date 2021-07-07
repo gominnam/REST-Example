@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 //@JsonIgnoreProperties(value={"password", "ssn"}) //json 값을 전달하지 않는 어노테이션 2
 @NoArgsConstructor
-@JsonFilter("UserInfo") //json 값을 전달하지 않는 어노테이션 3
+//@JsonFilter("UserInfo") //json 값을 전달하지 않는 어노테이션 3 [adminUserController 사용]
 public class User {
     private Integer id;
 
