@@ -22,6 +22,7 @@
     + Version 관리 [uri, param, header, mime]
     + HATEOAS [UserController] -- 추가 Link 정보 제공
     + Swagger [SwaggerConfig.java] Document, ui
+    + Actuator, Hal Browser[HATEOAS]
   
 
 -----------------------------------------------------
